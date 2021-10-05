@@ -10,12 +10,17 @@ const useStyles = createUseStyles({
   },
 });
 
-const Gallery = ({ images }) => {
+const Gallery = ({ images, onImageClick }) => {
   const classes = useStyles();
   return (
     <ul className={classes.gallery}>
-      {images.map(({ webformatURL, id }) => (
-        <GalleryItem key={id} img={webformatURL} />
+      {images.map(({ webformatURL, id, largeImageURL }) => (
+        <GalleryItem
+          key={id}
+          img={webformatURL}
+          onImageClick={onImageClick}
+          largeImageURL={largeImageURL}
+        />
       ))}
     </ul>
   );
